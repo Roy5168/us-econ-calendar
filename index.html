@@ -196,11 +196,14 @@ body{padding:0;}
 /* 捲動後才於固定列浮現之小標題 */
 .brand{
   font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.02rem;letter-spacing:.01em;
-  opacity:0;transform:translateY(-4px);transition:.22s;pointer-events:none;white-space:nowrap;
+  white-space:nowrap;pointer-events:none;
+  opacity:0;max-width:0;overflow:hidden;transform:translateY(-4px);
+  transition:opacity .22s, max-width .22s, transform .22s;
 }
-.appbar.stuck .brand{opacity:1;transform:none;}
+.appbar.stuck .brand{opacity:1;max-width:22em;transform:none;}
 .appbar.stuck{border-bottom-color:var(--ink);}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;}
+.appbar>.brand+.toolbar{margin-left:0;}
 .tab{
   font-family:"Noto Sans TC";font-size:.82rem;cursor:pointer;
   padding:5px 13px;border:1px solid var(--line);border-radius:3px;
@@ -208,7 +211,7 @@ body{padding:0;}
 }
 .tab:hover{border-color:var(--gold);color:var(--gold);}
 .tab.on{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:700;}
-.toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:.8rem;color:var(--ink-soft);}
+.toolbar{display:flex;align-items:center;gap:14px;margin-right:auto;flex-wrap:wrap;font-size:.8rem;color:var(--ink-soft);}
 .toolbar label{display:inline-flex;align-items:center;gap:6px;cursor:pointer;}
 .toolbar input[type=search]{
   font-family:"Noto Sans TC";font-size:.8rem;padding:5px 9px;width:170px;
